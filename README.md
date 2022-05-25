@@ -14,10 +14,10 @@ Besides, it shows how to make above app work inside a docker image for enabling 
   - [Create a Virtual Environment](#create-a-virtual-environment)
   - [Install Required Tools in Virtual Environment](#install-required-tools-in-virtual-environment)
 - [Run python app](#run-python-app)
-  - [Create a simple flask app](#create-a-simple-flask-app)
+  - [Verify the content of flask app](#verify-the-content-of-flask-app)
   - [Verify that app works](#verify-that-app-works)
 - [Dockerise Created App](#dockerise-created-app)
-  - [Create a Dockerfile](#create-a-dockerfile)
+  - [Verify and improve Dockerfile](#verify-and-improve-dockerfile)
   - [Build a docker image](#build-a-docker-image)
   - [Run a docker image](#run-a-docker-image)
 
@@ -59,9 +59,11 @@ Besides, it shows how to make above app work inside a docker image for enabling 
 
 ## Run python app
 
-### Create a simple flask app
+### Verify the content of flask app
 
-- The name of our app is "app.py".
+```bash
+            cat app.py
+```
 
 ### Verify that app works
 
@@ -73,7 +75,7 @@ Besides, it shows how to make above app work inside a docker image for enabling 
 
 ## Dockerise Created App
 
-### Create a Dockerfile
+### Verify and improve Dockerfile
 
 - Follow best practicies while writing a Dockerfile
 
