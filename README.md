@@ -1,33 +1,90 @@
-# Ghost in Shell
+# Python app inside a docker image
 
-Repository for working with a small Python and flask application that displays
-and serves static web files (HTML/CSS).
+This repo shows how to work with a small Python flask application that displays and serves static web files.
 
-### Prerequisites
+Besides, it shows how to make above app work inside a docker image for enabling deployment to any platform.
 
-- Python 3
+<!-- TOC -->
 
-### Installation
+- [Setup Development Environment](#setup-development-environment)
+  - [Choose a platform](#choose-a-platform)
+  - [Install required tools](#install-required-tools)
+- [Build a Virtual Environment](#build-a-virtual-dev-environment)
+  - [Create Requiriments file](#create-requirements-file)
+  - [Create a Virtual Environment](#create-a-virtual-environment)
+  - [Install Required Tools in Virtual Environment](#install-required-tools-in-virtual-environment)
+- [Run python app](#run-python-app)
+  - [Create a simple flask app](#create-a-simple-flask-app)
+  - [Verify that app works](#verify-that-app-works)
+- [Dockerise Created App](#dockerise-created-app)
+  - [Create a Dockerfile](#create-a-dockerfile)
+  - [Build a docker image](#build-a-docker-image)
+  - [Run a docker image](#run-a-docker-image)
 
-After cloning the repository, change to the cloned directory and
-install the requirements with the following command:
+<!-- /TOC -->
+
+## Setup Development Environment
+
+### Choose a platform
+
+- Our platform of choice - MacOS
+
+### Install required tools
+
+- Prerequisites:
+
+1. python 3
+2. docker
+3. VC (optional)
+
+## Build a Virtual Environment
+
+### Verify the content of Requiriments file
 
 ```bash
-pip install -r requirements.txt
+            cat requirements.txt
 ```
 
-
-### Usage
-
-To start the Flask application, start the application by simply
-calling the app.py file from the root of the cloned repository:
+### Create a Virtual Environment
 
 ```bash
-python3 app.py
+            python3 -m venv venv
 ```
 
-Please note: the application does work as given.
+### Install Required Tools in Virtual Environment
 
-### License
+```bash
+            venv/bin/pip install -r requirements.txt
+```
 
-MIT
+## Run python app
+
+### Create a simple flask app
+
+- The name of our app is "app.py".
+
+### Verify that app works
+
+```bash
+            venv/bin/python app.py
+```
+
+- Check created web endpoints.
+
+## Dockerise Created App
+
+### Create a Dockerfile
+
+- Follow best practicies while writing a Dockerfile
+
+### Build a docker image
+
+```bash
+            docker build . -t my-python-server
+```
+
+### Run a docker image
+
+```bash
+            docker run --rm --name flask-app -p 5000:5000 my-python-server
+```
